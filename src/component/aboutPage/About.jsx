@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import aboutImage from "../../assets/images/hero.jpg";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* About Content */}
@@ -22,7 +26,7 @@ const About = () => {
             <img
               src={aboutImage}
               alt="Our Story"
-              className="rounded-lg shadow-lg"
+              className="rounded-lg shadow-black shadow-xl"
             />
           </div>
         </div>
@@ -37,9 +41,9 @@ const About = () => {
               <img
                 src={aboutImage}
                 alt="Chef"
-                className="rounded-full w-32 h-32 border-4 border-white"
+                className="rounded-full w-32 h-32 border-4 border-white hover:scale-110 duration-300 "
               />
-              <h3 className="text-xl font-semibold mt-4">Chef John Doe</h3>
+              <h3 className="text-xl font-semibold mt-4 ">Chef John Doe</h3>
               <p className="text-gray-200">Executive Chef</p>
             </div>
             <div className="text-center">

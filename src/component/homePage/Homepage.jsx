@@ -1,18 +1,22 @@
 import React from "react";
-
+import { useEffect } from "react";
 const Homepage = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <div className=" min-h-screen bg-[url('/images/hero.jpg')] bg-cover">
       {/* Hero Section */}
       <section className=" h-[60vh] flex items-center justify-center text-white text-center p-6">
-        <div className="bg-black bg-opacity-50 p-6 rounded-xl">
+        <div className="bg-gradient-to-t from-blue-600 to bg-purple-600 bg-opacity-80 p-6 rounded-xl">
           <h1 className="text-4xl sm:text-5xl font-bold">
             Welcome to Nature Ray River View Resort
           </h1>
           <p className="mt-4 text-lg">Experience the finest flavors with us</p>
           <a
             href="#menu"
-            className="mt-6 inline-block bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold hover:bg-yellow-600 transition"
+            className="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold hover:scale-110 transition duration-300"
           >
             Explore Menu
           </a>
@@ -21,7 +25,7 @@ const Homepage = () => {
 
       {/* Menu Preview */}
       <section id="menu" className="py-12 text-center">
-        <h2 className="text-3xl font-bold mb-6">Our Specialties</h2>
+        <h2 className="text-3xl font-bold mb-6 text-white">Our Specialties</h2>
         <div className="flex flex-wrap justify-center gap-6">
           <div className="bg-white shadow-lg rounded-lg p-4 w-64">
             <img
@@ -54,12 +58,12 @@ const Homepage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="bg-yellow-500 text-black text-center py-10">
+      <section className="bg-gradient-to-t from-blue-600 to bg-purple-600 text-white text-center py-10">
         <h2 className="text-3xl font-bold">Ready to Taste the Best?</h2>
         <p className="mt-2">Reserve your table now or order online!</p>
         <a
           href="#contact"
-          className="mt-4 inline-block bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition"
+          className="mt-4 inline-block bg-primary text-white px-6 py-3 rounded-full font-semibold  hover:scale-110 duration-300"
         >
           Contact Us
         </a>
