@@ -78,7 +78,7 @@ const Navbar = () => {
         </button>
         {/* Mobile  */}
       </div>
-      <div className="container text-white flex justify-center text-lg">
+      <div className="container sm:hidden text-white flex justify-center text-lg">
         {isOpen && (
           <div>
             <ul className="space-y-4 flex-col text-center ">

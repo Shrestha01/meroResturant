@@ -30,29 +30,37 @@ const Homepage = () => {
           <div className="bg-white shadow-lg rounded-lg p-4 w-64">
             <img
               src="https://source.unsplash.com/300x200/?pizza"
-              alt="Pizza"
+              alt="Hall Image"
               className="rounded-md mb-3"
             />
-            <h3 className="text-xl font-semibold">Delicious Pizza</h3>
-            <p className="text-gray-600">Crispy crust with fresh toppings</p>
+            <h3 className="text-xl font-semibold">Function Hall</h3>
+            <p className="text-gray-600">
+              Spacious Hall with AC and Stage for Function celebration
+            </p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-4 w-64">
             <img
               src="https://source.unsplash.com/300x200/?burger"
-              alt="Burger"
+              alt="Room"
               className="rounded-md mb-3"
             />
-            <h3 className="text-xl font-semibold">Juicy Burgers</h3>
-            <p className="text-gray-600">Grilled to perfection</p>
+            <h3 className="text-xl font-semibold">AC Room</h3>
+            <p className="text-gray-600">
+              Spacious room with AC and Attached Bathroom
+            </p>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-4 w-64">
             <img
               src="https://source.unsplash.com/300x200/?pasta"
-              alt="Pasta"
+              alt="Dine In"
               className="rounded-md mb-3"
             />
-            <h3 className="text-xl font-semibold">Creamy Pasta</h3>
-            <p className="text-gray-600">Authentic Italian taste</p>
+            <h3 className="text-xl font-semibold">
+              Dine In Resturant with Bar
+            </h3>
+            <p className="text-gray-600">
+              Authentic Nepali and Indaian Taste with Bar
+            </p>
           </div>
         </div>
       </section>
