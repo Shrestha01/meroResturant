@@ -7,19 +7,7 @@ import About from "./component/aboutPage/About";
 import Menu from "./component/menuPage/Menu";
 
 const App = () => {
-  return (
-    <Router>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/meroResturant" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-      </Routes>
-      <Footer />
-    </Router>
-  );
+  return <div>hello</div>;
 };
 
 export default App;
