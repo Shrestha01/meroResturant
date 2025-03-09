@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImCross } from "react-icons/im";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+  const { logout, loginWithRedirect } = useAuth0();
+
   // toogle for navbar
 
   const [isOpen, setIsOpen] = useState(false);
@@ -53,11 +56,21 @@ const Navbar = () => {
           </ul>
         </div>
 
+        {/* Login/Signup Button */}
+
         <div className="hidden sm:flex ">
-          <button className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-s-3xl">
+          <button
+            className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-s-3xl"
+            onClick={() => loginWithRedirect()}
+          >
             Sign In
           </button>
-          <button className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl">
+          <button
+            className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl"
+            onClick={() =>
+              logout({ logoutParams: { returnTo: window.location.origin } })
+            }
+          >
             Sign up
           </button>
         </div>
