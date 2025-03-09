@@ -10,10 +10,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 const App = () => {
   const { loginWithRedirect, logout } = useAuth0();
   return (
-    <div>
-      <button onClick={() => loginWithRedirect()}>sign</button>
-      <button onClick={() => logout()}>logout</button>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/home" element={<Homepage />} />
+        <Route path="/meroRestorant" element={<Homepage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/menu" element={<Menu />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 };
 

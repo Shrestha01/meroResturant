@@ -21,7 +21,7 @@ const Navbar = () => {
           <ul className="hidden sm:flex space-x-11">
             <li>
               <Link
-                to="/"
+                to="/home"
                 className="inline-block  hover:scale-110 hover:text-primary "
               >
                 Home
@@ -97,7 +97,7 @@ const Navbar = () => {
             <ul className="space-y-4 flex-col text-center ">
               <li>
                 <Link
-                  to="/"
+                  to="/home"
                   className="inline-block  hover:scale-110 hover:text-primary "
                   onClick={() => setIsOpen(false)}
                 >
