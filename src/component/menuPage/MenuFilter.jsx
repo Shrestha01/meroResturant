@@ -2,7 +2,7 @@ import React, { useState, useEffect,useContext } from "react";
 import CardMenu from "./CardMenu"; // Assuming CardMenu component is already created
 import { CounterContext } from './Menu';
 
-const MenuFilter = ({menu}) => {
+const MenuFilter = (menu) => {
 
 
 
