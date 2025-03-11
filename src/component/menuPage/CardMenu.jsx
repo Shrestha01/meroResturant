@@ -11,7 +11,7 @@ const MenuCard = ({ item }) => {
       // On success, remove the user from the state
      // setUsers(users.filter((user) => user._id !== id)); // Filter out the deleted user
       alert(response.data.message); // Show success message
-      setMessage(response.data.message);
+     // setMessage(response.data.message);
     } catch (error) {
       console.error("There was an error deleting the user:", error);
       alert("Failed to delete the user");
