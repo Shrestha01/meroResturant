@@ -19,7 +19,7 @@ const MenuFilter = ({ menu }) => {
     if (selectedCategory === "All") {
       setFilteredMenu(menu); // Show all items if "All" is selected
     } else {
-      setFilteredMenu(menu.filter((item) => item.category === category));
+      setFilteredMenu(menu.filter((item) => item.category === selectedCategory));
     }
     // console.log("MenuFilter received updated menu:", menu);
   }, [menu, selectedCategory]);
