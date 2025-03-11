@@ -25,7 +25,7 @@ const MenuCard = ({ item }) => {
       </p>
       <p className="text-green-600 font-bold mt-2">₹{item.price}</p>
       <p className="text-gray-700 text-center mt-2">{item.description}</p>
-      <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200" onClick={()=>deleteData(item_id)}>
+      <button className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition duration-200"  onClick={() => deleteData(item._id)}>
         Delete
       </button>
     </div>
