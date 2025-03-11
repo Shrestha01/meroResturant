@@ -194,5 +194,5 @@ const Menu = () => {
     </div>
   );
 };
-
+export {CounterContext};
 export default Menu;
