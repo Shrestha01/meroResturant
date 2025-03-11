@@ -2,12 +2,11 @@ import React, { useState, useEffect,useContext } from "react";
 import CardMenu from "./CardMenu"; // Assuming CardMenu component is already created
 import { CounterContext } from './Menu';
 
-const MenuFilter = () => {
+const MenuFilter = ({menu}) => {
 
 
 
 
-  const {menu} = useContext(CounterContext);
   const [filteredMenu, setFilteredMenu] = useState(menu);
   const [selectedCategory, setSelectedCategory] = useState("All");
 
