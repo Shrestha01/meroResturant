@@ -41,11 +41,11 @@ const Menu = () => {
       setMessage("Recipe added successfully!");
       setReloadMenu((prev) => !prev);
 
-      // Clear form fields after submission
-      // setName("");
-      // setCategory("");
-      // setPrice("");
-      // setDescription("");
+      Clear form fields after submission
+      setName("");
+      setCategory("");
+      setPrice("");
+      setDescription("");
     } catch (error) {
       setIsSuccess(false);
       setMessage("Something went wrong. Please try again.");
