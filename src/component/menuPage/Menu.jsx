@@ -1,8 +1,8 @@
-import React, { use, useEffect, useState,createContext } from "react";
+import React, { use, useEffect, useState } from "react";
 import axios from "axios";
 import MenuFilter from "./MenuFilter";
 // Create a Context for the counter
-const CounterContext = createContext();
+// const CounterContext = createContext();
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -186,9 +186,9 @@ const Menu = () => {
           <div>Loading...</div>
         ) : (
           /* Pass the menu as a prop to the child component */
-      <CounterContext.Provider value={menu}>
-          <MenuFilter />
-      </CounterContext.Provider>
+  
+          <MenuFilter menu={menu} />
+
         )}
       </div>
     </div>
