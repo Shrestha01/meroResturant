@@ -41,7 +41,7 @@ const Menu = () => {
       setMessage("Recipe added successfully!");
       setReloadMenu((prev) => !prev);
 
-      Clear form fields after submission
+     // Clear form fields after submission
       setName("");
       setCategory("");
       setPrice("");
