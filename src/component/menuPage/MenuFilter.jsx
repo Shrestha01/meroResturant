@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import CardMenu from "./CardMenu"; // Assuming CardMenu component is already created
-import { CounterContext } from './CounterContext';
+import { CounterContext } from './Menu';
 
 const MenuFilter = () => {
 
