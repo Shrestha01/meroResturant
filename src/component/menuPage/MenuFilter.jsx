@@ -1,34 +1,29 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CardMenu from "./CardMenu"; // Assuming CardMenu component is already created
 
+import { MyContext } from "./Menu";
 
-const MenuFilter = ({menu}) => {
-
-
-
-
+const MenuFilter = ({ menu }) => {
   const [filteredMenu, setFilteredMenu] = useState(menu);
   const [selectedCategory, setSelectedCategory] = useState("All");
-
   // Handle category change and filter the menu items accordingly
   const handleCategoryChange = (event) => {
     const category = event.target.value;
     setSelectedCategory(category);
   };
-
   // Extract unique categories from the menu data for dropdown
   const categories = ["All", ...new Set(menu.map((item) => item.category))];
-
   useEffect(() => {
     // Filter items based on the selected category
     if (selectedCategory === "All") {
       setFilteredMenu(menu); // Show all items if "All" is selected
     } else {
-      setFilteredMenu(menu.filter((item) => item.category === selectedCategory));
+      setFilteredMenu(
+        menu.filter((item) => item.category === selectedCategory)
+      );
     }
     // console.log("MenuFilter received updated menu:", menu);
   }, [menu, selectedCategory]);
-
   return (
     <div>
       {/* Dropdown for category selection */}
@@ -45,7 +40,6 @@ const MenuFilter = ({menu}) => {
           ))}
         </select>
       </div>
-
       {/* Display filtered menu items */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {filteredMenu.map((item) => (

@@ -1,8 +1,9 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useEffect, useState, createContext } from "react";
 import axios from "axios";
 import MenuFilter from "./MenuFilter";
-// Create a Context for the counter
-// const CounterContext = createContext();
+
+// Create a Context for the reLoad Menu when item change
+const MyContext = createContext();
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -43,7 +44,7 @@ const Menu = () => {
       setMessage("Recipe added successfully!");
       setReloadMenu((prev) => !prev);
 
-     // Clear form fields after submission
+      // Clear form fields after submission
       setName("");
       setCategory("");
       setPrice("");
@@ -186,13 +187,13 @@ const Menu = () => {
           <div>Loading...</div>
         ) : (
           /* Pass the menu as a prop to the child component */
-  
-          <MenuFilter menu={menu} />
-
+          <MyContext.Provider value={{ reloadMenu, setReloadMenu }}>
+            <MenuFilter menu={menu} />
+          </MyContext.Provider>
         )}
       </div>
     </div>
   );
 };
-
+export { MyContext };
 export default Menu;
