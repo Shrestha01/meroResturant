@@ -1,6 +1,7 @@
 import React, { use, useEffect, useState, createContext } from "react";
 import axios from "axios";
 import MenuFilter from "./MenuFilter";
+import { IoCart } from "react-icons/io5";
 
 // Create a Context for the reLoad Menu when item change
 const MyContext = createContext();
@@ -16,6 +17,7 @@ const Menu = () => {
   const [message, setMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(null);
   const [reloadMenu, setReloadMenu] = useState(false);
+  const [cart, setCart] = useState([]);
 
   // Handle form input changes
   const handleNameChange = (e) => setName(e.target.value);
@@ -93,106 +95,123 @@ const Menu = () => {
   // };
 
   return (
-    <div className="min-h-screen flex container">
-      {/* About Content */}
+    <>
+      <div className="min-h-screen container flex">
+        {/* About Content */}
 
-      <div className="w-2/5 border-2 ">
-        insert
-        {/* Form for adding recipe */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="flex flex-col">
-            <label htmlFor="name" className="text-sm font-medium">
-              Recipe Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              value={name}
-              onChange={handleNameChange}
-              className="p-2 border border-gray-300 rounded-lg mt-1"
-              required
-            />
-          </div>
+        <div className=" w-2/5 border-2 p-6 bg-purple-400">
+          {/* Form for adding recipe */}
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="flex flex-col">
+              <label htmlFor="name" className="text-sm font-medium">
+                Recipe Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={handleNameChange}
+                className="p-2 border border-gray-300 rounded-lg mt-1"
+                required
+              />
+            </div>
 
-          <div className="flex flex-col">
-            <label htmlFor="category" className="text-sm font-medium">
-              Category
-            </label>
-            <select
-              id="category"
-              value={category}
-              onChange={handleCategoryChange}
-              className="p-2 border border-gray-300 rounded-lg mt-1"
-              required
+            <div className="flex flex-col">
+              <label htmlFor="category" className="text-sm font-medium">
+                Category
+              </label>
+              <select
+                id="category"
+                value={category}
+                onChange={handleCategoryChange}
+                className="p-2 border border-gray-300 rounded-lg mt-1"
+                required
+              >
+                <option value="">Select Category</option>
+                <option value="Veg">Veg</option>
+                <option value="Non-Veg">Non-Veg</option>
+              </select>
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="price" className="text-sm font-medium">
+                Price
+              </label>
+              <input
+                type="number"
+                id="price"
+                value={price}
+                onChange={handlePriceChange}
+                className="p-2 border border-gray-300 rounded-lg mt-1"
+                required
+              />
+            </div>
+
+            <div className="flex flex-col">
+              <label htmlFor="description" className="text-sm font-medium">
+                Description
+              </label>
+              <textarea
+                id="description"
+                value={description}
+                onChange={handleDescriptionChange}
+                className="p-2 border border-gray-300 rounded-lg mt-1"
+                rows="4"
+                required
+              />
+            </div>
+
+            {/* Submit Button */}
+            <div className="flex justify-center mt-4">
+              <button
+                type="submit"
+                className=" px-6 py-2 rounded-lg bg-gradient-to-t from-blue-600 to-purple-500 text-white hover:scale-110 transition duration-200"
+              >
+                Add Recipe
+              </button>
+            </div>
+          </form>
+          {/* Success or Error Message */}
+          {message && (
+            <div
+              className={`mt-4 text-center p-2 rounded-lg ${
+                isSuccess
+                  ? "bg-green-100 text-green-800"
+                  : "bg-red-100 text-red-800"
+              }`}
             >
-              <option value="">Select Category</option>
-              <option value="Veg">Veg</option>
-              <option value="Non-Veg">Non-Veg</option>
-            </select>
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="price" className="text-sm font-medium">
-              Price
-            </label>
-            <input
-              type="number"
-              id="price"
-              value={price}
-              onChange={handlePriceChange}
-              className="p-2 border border-gray-300 rounded-lg mt-1"
-              required
-            />
-          </div>
-
-          <div className="flex flex-col">
-            <label htmlFor="description" className="text-sm font-medium">
-              Description
-            </label>
-            <textarea
-              id="description"
-              value={description}
-              onChange={handleDescriptionChange}
-              className="p-2 border border-gray-300 rounded-lg mt-1"
-              rows="4"
-              required
-            />
-          </div>
-
-          {/* Submit Button */}
-          <div className="flex justify-center mt-4">
-            <button
-              type="submit"
-              className="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-200"
+              {message}
+            </div>
+          )}
+        </div>
+        <div className="w-3/5 max-h-screen overflow-auto p-4">
+          {loading ? (
+            <div>Loading...</div>
+          ) : (
+            /* Pass the menu as a prop to the child component */
+            <MyContext.Provider
+              value={{ reloadMenu, setReloadMenu, cart, setCart }}
             >
-              Add Recipe
-            </button>
+              <MenuFilter menu={menu} />
+            </MyContext.Provider>
+          )}
+        </div>
+        <div>
+          <div className="flex">
+            <IoCart size={30} />
+            {cart.length > 0 && cart.length}
           </div>
-        </form>
-        {/* Success or Error Message */}
-        {message && (
-          <div
-            className={`mt-4 text-center p-2 rounded-lg ${
-              isSuccess
-                ? "bg-green-100 text-green-800"
-                : "bg-red-100 text-red-800"
-            }`}
-          >
-            {message}
+
+          <div className="pt-6">
+            <ul>
+              {cart.map((c) => (
+                <li className="text-sm">{c.name}</li>
+              ))}
+            </ul>
           </div>
-        )}
+        </div>
       </div>
-      <div className="w-3/5 border-2 max-h-screen overflow-auto p-4">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          /* Pass the menu as a prop to the child component */
-          <MyContext.Provider value={{ reloadMenu, setReloadMenu }}>
-            <MenuFilter menu={menu} />
-          </MyContext.Provider>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 export { MyContext };
