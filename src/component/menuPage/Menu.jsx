@@ -205,7 +205,7 @@ const Menu = () => {
           <div className="pt-6">
             <ul>
               {cart.map((c) => (
-                <li className="text-sm">{c.name}</li>
+                <li className="text-sm">{c.name + c.quantity} </li>
               ))}
             </ul>
           </div>
