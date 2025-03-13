@@ -8,15 +8,15 @@ const domain = "dev-hfcjxegc10c0fhfr.us.auth0.com";
 const clientID = "DyS4ezlitExuSSTmDDBCT0O69RppALoP";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <Auth0Provider
-      domain="dev-31k7gebzz3xgoxsk.au.auth0.com"
-      clientId="42n1MMkKgiwjtz538Uq34beSBD9gCOhZ"
-      authorizationParams={{
-        redirectd_uri: window.location.origin,
-      }}
-    >
+  <Auth0Provider
+    domain="dev-hfcjxegc10c0fhfr.us.auth0.com"
+    clientId="1iwoPbSjPtwNaAfJFk68eigCA53Ud4s9"
+    authorizationParams={{
+      redirect_uri: window.location.origin,
+    }}
+  >
+    <StrictMode>
       <App />
-    </Auth0Provider>
-  </StrictMode>
+    </StrictMode>
+  </Auth0Provider>
 );

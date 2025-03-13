@@ -6,7 +6,7 @@ import { ImCross } from "react-icons/im";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
-  const { logout, loginWithRedirect } = useAuth0();
+  const { user, logout, loginWithRedirect } = useAuth0();
 
   // toogle for navbar
 
@@ -59,20 +59,23 @@ const Navbar = () => {
         {/* Login/Signup Button */}
 
         <div className="hidden sm:flex ">
-          <button
-            className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-s-3xl"
-            onClick={() => loginWithRedirect()}
-          >
-            Sign In
-          </button>
-          <button
-            className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl"
-            onClick={() =>
-              logout({ logoutParams: { returnTo: window.location.origin } })
-            }
-          >
-            Sign up
-          </button>
+          {user ? (
+            <button
+              className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl"
+              onClick={() =>
+                logout({ logoutParams: { returnTo: window.location.origin } })
+              }
+            >
+              Log out
+            </button>
+          ) : (
+            <button
+              className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-s-3xl"
+              onClick={(e) => loginWithRedirect()}
+            >
+              Sign In
+            </button>
+          )}
         </div>
         {/* Mobile Navbar */}
 
