@@ -25,8 +25,20 @@ const MenuCard = ({ item }) => {
 
   // Function to add or update the cart item
   const addToCart = (item) => {
-    context.setCart((prev) => [...prev, item]);
-  };
+  context.setCart((prev) => {
+    const existingItemIndex = prev.findIndex(cartItem => cartItem._id === item._id);
+
+    if (existingItemIndex !== -1) {
+      // Item already exists, update the quantity
+      const updatedCart = [...prev];
+      updatedCart[existingItemIndex].quantity += 1;  // Increase quantity by 1
+      return updatedCart;
+    } else {
+      // Item doesn't exist, add it to the cart with a quantity of 1
+      return [...prev, { ...item, quantity: 1 }];
+    }
+  });
+};
 
   return (
     <div className="max-w-xs rounded-lg shadow-lg p-4 flex flex-col items-center shadow-black border-2 hover:border-purple-500 hover:scale-110 transition duration-200 ">
