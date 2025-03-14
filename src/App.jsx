@@ -3,7 +3,7 @@ import Navbar from "./component/Navbar";
 import Homepage from "./component/homePage/Homepage";
 import Footer from "./component/Footer";
 import About from "./component/aboutPage/About";
-
+import Contactus from "./component/contactusPage/Contactus";
 import Menu from "./component/menuPage/Menu";
 
 const App = () => {
@@ -16,6 +16,7 @@ const App = () => {
         <Route path="/meroRestorant" element={<Homepage />} />
         <Route path="/about" element={<About />} />
         <Route path="/menu" element={<Menu />} />
+        <Route path="/contactus" element={<Contactus />} />
       </Routes>
       <Footer />
     </Router>

@@ -8,6 +8,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Navbar = () => {
   const { user, logout, loginWithRedirect } = useAuth0();
 
+  console.log(user);
+
   // toogle for navbar
 
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +49,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/About"
+                to="/Contactus"
                 className="inline-block  hover:scale-110 hover:text-primary "
               >
                 Contact Us
@@ -129,7 +131,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link
-                  to="/About"
+                  to="/Contactus"
                   className="inline-block  hover:scale-110 hover:text-primary "
                   onClick={() => setIsOpen(false)}
                 >
