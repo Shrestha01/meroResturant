@@ -22,7 +22,7 @@ const Contactus = () => {
     //console.log("Form submitted:", formData);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/send-email",
+        "https://foodrecipie-j3ki.onrender.com/api/send-email",
         formData
       );
 
