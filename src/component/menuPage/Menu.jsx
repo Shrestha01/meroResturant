@@ -53,7 +53,7 @@ const Menu = () => {
 
     try {
       const response = await axios.post(
-        "https://foodrecipie-j3ki.onrender.com/api/add",
+        "https://foodrecipie-l1xv.onrender.com/api/menu/register",
         {
           name,
           category,
@@ -82,7 +82,7 @@ const Menu = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://foodrecipie-j3ki.onrender.com/api/menu"
+          "https://foodrecipie-l1xv.onrender.com/api/menu"
         ); // Replace with your API URL
         //console.log(menu);
 
