@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* Login/Signup Button */}
 
-        <div className="hidden sm:flex ">
+        <div className="sm:flex border-2 ">
           {user ? (
             <button
               className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl"

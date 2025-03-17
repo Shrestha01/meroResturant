@@ -53,7 +53,7 @@ const Menu = () => {
 
     try {
       const response = await axios.post(
-        "https://foodrecipie-j3ki.onrender.com/api/menu/add",
+        "https://foodrecipie-j3ki.onrender.com/api/add",
         {
           name,
           category,

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
@@ -14,10 +15,26 @@ const Contactus = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     // Add form submission logic here (e.g., send an API request)
-    console.log("Form submitted:", formData);
+    //console.log("Form submitted:", formData);
+    try {
+      const response = await axios.post(
+        "http://localhost:3000/api/send-email",
+        formData
+      );
+
+      alert("Email sent successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
