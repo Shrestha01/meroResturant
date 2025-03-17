@@ -57,14 +57,14 @@ const Contactus = () => {
               Our Location
             </h3>
             <p className="text-gray-600">
-              123 Foodie Street, Flavor Town, 12345
+              Bhumahi Chowk, Parasi Road, NawalParasi, Nepal
             </p>
 
             <h3 className="text-2xl font-semibold text-gray-800">Phone</h3>
-            <p className="text-gray-600">+1 (555) 123-4567</p>
+            <p className="text-gray-600">+9779840066586</p>
 
             <h3 className="text-2xl font-semibold text-gray-800">Email</h3>
-            <p className="text-gray-600">contact@flavortownrestaurant.com</p>
+            <p className="text-gray-600">shresthaa1994@gmail.com</p>
 
             <h3 className="text-2xl font-semibold text-gray-800">
               Working Hours
@@ -73,6 +73,7 @@ const Contactus = () => {
             <p className="text-gray-600">Sat-Sun: 12:00 PM - 11:00 PM</p>
 
             {/* Google Maps */}
+            {/*}
             <div className="mt-6">
               <iframe
                 className="w-full h-64 rounded-lg"
@@ -80,7 +81,7 @@ const Contactus = () => {
                 allowFullScreen=""
                 loading="lazy"
               ></iframe>
-            </div>
+            </div> */}
           </div>
 
           {/* Contact Form Section */}
@@ -143,7 +144,7 @@ const Contactus = () => {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full py-3 px-6 bg-purple-600 text-white font-semibold rounded-md hover:bg-purple-700 transition duration-200"
+                className="w-full py-3  border-2 border-purple-500 font-semibold rounded-md hover:scale-110 transition duration-200"
               >
                 Send Message
               </button>

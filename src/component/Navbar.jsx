@@ -57,10 +57,8 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-
         {/* Login/Signup Button */}
-
-        <div className="sm:flex border-2 ">
+        <div className="sm:flex ">
           {user ? (
             <button
               className="inline-block hover:scale-110 hover:text-primary hover:border-primary border-2 p-4 rounded-r-3xl"
@@ -79,8 +77,8 @@ const Navbar = () => {
             </button>
           )}
         </div>
-        {/* Mobile Navbar */}
 
+        {/* Mobile Navbar */}
         <button className="sm:hidden" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? (
             <ImCross
@@ -96,8 +94,9 @@ const Navbar = () => {
         </button>
         {/* Mobile  */}
       </div>
-      <div className="container sm:hidden text-white flex justify-center text-lg">
-        {isOpen && (
+
+      {isOpen && (
+        <div className="container sm:hidden text-white flex justify-center text-lg">
           <div>
             <ul className="space-y-4 flex-col text-center ">
               <li>
@@ -140,8 +139,8 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

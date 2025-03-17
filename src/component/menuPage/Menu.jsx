@@ -117,7 +117,7 @@ const Menu = () => {
   return (
     <div className="flex flex-col sm:flex-row h-screen">
       {user && user.email === "adarsha.stha123@gmail.com" && (
-        <div className="max-w-2/6  p-6">
+        <div className="max-w-2/6  p-6 border-2 border-purple-600 rounded-xl hover:scale-110 transition duration-100  m-6">
           {/* Form for adding recipe */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex flex-col">
@@ -204,9 +204,9 @@ const Menu = () => {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row justify-between border-43">
+      <div className="flex flex-col sm:flex-row justify-between overflow-auto">
         {isAuthenticated && (
-          <div className="max-h-screen overflow-auto p-4 max-w-3/6">
+          <div className="max-h-screen overflow-auto p-4 max-w-3/6 border-4">
             {loading ? (
               <div>Loading...</div>
             ) : (
@@ -222,18 +222,20 @@ const Menu = () => {
         {/*Cart  */}
 
         {cart && cart.length > 0 && (
-          <div className="overflow-auto max-w-2/6  p-6">
-            sdafasdfadfadsfasdfasdfadfadfsasdfadsfad
-            <div className="flex">
+          <div className="overflow-auto p-6 m-6 border-4 border-purple-600 rounded-xl hover:scale-110 transition duration-100 max-h-fit">
+            <p className="text-xl font-semibold text-center">Cart Items</p>
+            <div className="flex justify-center items-center mt-4">
               <IoCart size={30} />
-              {cart.length > 0 && cart.length}
+              {cart.length > 0 && <div>{cart.length}</div>}
             </div>
-            <div className="pt-6">
+            <div className="pt-6 border-2">
               <ul className="text-sm">
                 {cart.map((c) => (
-                  <li>
+                  <li className="flex justify-between p-2 border-b-2">
                     <span>{c.name + c.quantity} </span>
-                    <span className="ml-6">{c.quantity * c.price}</span>
+                    <span className="ml-6 content-end border-2">
+                      {c.quantity * c.price}
+                    </span>
                   </li>
                 ))}
               </ul>
