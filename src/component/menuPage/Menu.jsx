@@ -20,6 +20,7 @@ const Menu = () => {
   const [isSuccess, setIsSuccess] = useState(null);
   const [reloadMenu, setReloadMenu] = useState(false);
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
   const navigate = useNavigate();
 
   // Handle form input changes
@@ -31,6 +32,9 @@ const Menu = () => {
   const { user, isAuthenticated, loginWithRedirect } = useAuth0();
 
   useEffect(() => {
+    setTotalPrice(
+      cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
+    );
     if (!isAuthenticated) {
       // Show an alert if the user is not authenticated
       alert("Logging in with a valid Email and Password");
@@ -42,7 +46,7 @@ const Menu = () => {
         navigate("/home");
       }
     }
-  }, [isAuthenticated, navigate]);
+  }, [isAuthenticated, navigate, cart]);
 
   // Submit form data to API
   const handleSubmit = async (e) => {
@@ -115,9 +119,9 @@ const Menu = () => {
   // };
 
   return (
-    <div className="flex flex-col sm:flex-row h-screen">
+    <div className="flex flex-col sm:flex-row">
       {user && user.email === "adarsha.stha123@gmail.com" && (
-        <div className="max-w-2/6  p-6 border-2 border-purple-600 rounded-xl hover:scale-110 transition duration-100  m-6">
+        <div className="p-6 border-2 border-purple-600 rounded-xl m-6">
           {/* Form for adding recipe */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="flex flex-col">
@@ -204,9 +208,9 @@ const Menu = () => {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row justify-between overflow-auto">
-        {isAuthenticated && (
-          <div className="max-h-screen overflow-auto p-4 max-w-3/6 border-4">
+      {isAuthenticated && (
+        <div className="overflow-scroll border-2 h-screen">
+          <div className="border-2 border-purple-600 rounded-xl p-6 m-6">
             {loading ? (
               <div>Loading...</div>
             ) : (
@@ -218,31 +222,40 @@ const Menu = () => {
               </MyContext.Provider>
             )}
           </div>
-        )}
-        {/*Cart  */}
+        </div>
+      )}
+      {/*Cart  */}
 
-        {cart && cart.length > 0 && (
-          <div className="overflow-auto p-6 m-6 border-4 border-purple-600 rounded-xl hover:scale-110 transition duration-100 max-h-fit">
-            <p className="text-xl font-semibold text-center">Cart Items</p>
-            <div className="flex justify-center items-center mt-4">
-              <IoCart size={30} />
-              {cart.length > 0 && <div>{cart.length}</div>}
-            </div>
-            <div className="pt-6 border-2">
-              <ul className="text-sm">
-                {cart.map((c) => (
-                  <li className="flex justify-between p-2 border-b-2">
-                    <span>{c.name + c.quantity} </span>
-                    <span className="ml-6 content-end border-2">
-                      {c.quantity * c.price}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      {cart && cart.length > 0 && (
+        <div className="m-6 border-4 border-purple-600 rounded-xl min-w-fit p-6 ">
+          <p className="text-xl font-semibold text-center">Cart Items</p>
+          <div className="flex justify-center items-center mt-4">
+            <IoCart size={30} />
+            {cart.length > 0 && <div>{cart.length}</div>}
+          </div>
+          <div className="pt-6">
+            <ul className="text-sm">
+              {cart.map((c) => (
+                <li className="flex justify-between p-2">
+                  <span>{`${c.name} * ${c.quantity}`} </span>
+                  <span className="ml-6 content-end ">
+                    {c.quantity * c.price}
+                  </span>
+                </li>
+              ))}
+              <li className="flex justify-between p-2 font-bold">
+                <span>Total</span>
+                <span>{totalPrice}</span>
+              </li>
+            </ul>
+            <div className="flex justify-center mt-4">
+              <button className="border-2 border-purple-600 px-4 py-2 rounded-lg hover:scale-110 transition duration-200">
+                Pay
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

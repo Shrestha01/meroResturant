@@ -9,16 +9,21 @@ import Menu from "./component/menuPage/Menu";
 const App = () => {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/home" element={<Homepage />} />
-        <Route path="/meroRestorant" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/contactus" element={<Contactus />} />
-      </Routes>
-      <Footer />
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <div className="min-h-screen overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/home" element={<Homepage />} />
+            <Route path="/meroRestorant" element={<Homepage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/menu" element={<Menu />} />
+            <Route path="/contactus" element={<Contactus />} />
+          </Routes>
+        </div>
+
+        <Footer />
+      </div>
     </Router>
   );
 };
