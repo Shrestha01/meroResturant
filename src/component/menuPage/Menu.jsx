@@ -4,7 +4,7 @@ import MenuFilter from "./MenuFilter";
 import { IoCart } from "react-icons/io5";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-
+//new
 // Create a Context for the reLoad Menu when item change
 const MyContext = createContext();
 
