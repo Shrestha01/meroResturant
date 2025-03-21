@@ -1,12 +1,38 @@
-# React + Vite
+This is a **Restaurant WebApp** built using the **MERN stack** (MongoDB, Express, React, Node.js). The app allows customers to browse the restaurant's menu, place orders, and interact with the restaurant in real-time. 
+It also includes an admin panel for restaurant managers to manage menu items, view orders, and update the status of orders.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
 
-Currently, two official plugins are available:
+- **User Side:**
+  - View the restaurant's menu ---- completed
+  - Add items to the cart  --- Completed
+  - Place orders --- in progress
+  - View order history  --- in progress
+  - Real-time updates for order status  --- in projgress
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Admin Side:**
+  - Manage the menu (Add, Edit, Delete menu items)  --- completed
+  - View and manage customer orders --- in process
+  - Mark orders as completed ---pending
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **MongoDB**: NoSQL database for storing restaurant menu and order data
+- **Express.js**: Web framework for building the backend API
+- **React.js**: Frontend library for building user interfaces
+- **Node.js**: Backend runtime environment
+- **0Auth  **: For authentication and authorization
+- **Axios**: For making HTTP requests to the backend
+- **Socket.io**: For real-time updates on order status
+- **Redux**: For state management in React
+
+  
+
+
+This web application is live on:
+https://meroresturant.onrender.com/
+
+RestAPi Endpoin is live on:
+https://foodrecipie-l1xv.onrender.com/api/menu  --- fetch all the menu details
+
+
