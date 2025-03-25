@@ -11,7 +11,7 @@ const MenuCard = ({ item }) => {
   const deleteData = async (id) => {
     try {
       const response = await axios.delete(
-        `https://foodrecipie-l1xv.onrender.com/api/delete/${id}`
+        `https://foodrecipie-l1xv.onrender.com/api/menu/delete/${id}`
       );
       console.log(response.data.message);
       // On success, remove the user from the state
