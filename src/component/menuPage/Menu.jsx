@@ -120,7 +120,8 @@ const Menu = () => {
 
   return (
     <div className="flex flex-col sm:flex-row">
-      {user && user.email === "adarsha.stha123@gmail.com" && (
+      {/* {user && user.email === "adarsha.stha123@gmail.com" && ( */}
+      {isAuthenticated &&(
         <div className="p-6 border-2 border-purple-600 rounded-xl m-6">
           {/* Form for adding recipe */}
           <form onSubmit={handleSubmit} className="space-y-4">
